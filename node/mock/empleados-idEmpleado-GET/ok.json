@@ -1,0 +1,16 @@
+{
+    "mensaje": "Operación Exitosa",
+    "folio": "22920190128140415938",
+    "resultado": {
+      "id": 1,
+      "nombre": "Albert Einstein",
+      "correoElectronico": "suCorreo@info.com",
+      "numeroTelefono": "5544332211",
+      "domicilio": {
+        "calle": "Los manantiales",
+        "numero": "SN",
+        "codigoPostal": "03422",
+        "ciudad": "Ciudad de México"
+      }
+    }
+}

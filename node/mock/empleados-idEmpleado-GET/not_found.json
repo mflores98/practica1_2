@@ -1,0 +1,9 @@
+{
+    "codigo": "404.Banca-Digital-Empleados.1002",
+    "mensaje": "No se encontró información",
+    "folio": "22920190128134317233",
+    "info": "https://baz-developer.bancoazteca.com.mx/errors#404.Banca-Digital-Empleados.1002",
+    "detalles": [
+      "No se obtuvo información relacionada al identificador del empleado proporcionado"
+    ]
+}

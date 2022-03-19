@@ -1,0 +1,44 @@
+{
+    "mensaje": "Operación Exitosa",
+    "folio": "22920190128140415938",
+    "resultado": {
+      "Empleados": [
+        {
+          "id": 1,
+          "nombre": "Albert Einstein",
+          "correoElectronico": "suCorreo@info.com",
+          "numeroTelefono": "5544332211",
+          "domicilio": {
+            "calle": "Los manantiales",
+            "numero": "SN",
+            "codigoPostal": "03422",
+            "ciudad": "Ciudad de México"
+          }
+        },
+        {
+          "id": 2,
+          "nombre": "Freddy Krueger",
+          "correoElectronico": "suCorreo@info.com",
+          "numeroTelefono": "5511223344",
+          "domicilio": {
+            "calle": "Corregidora",
+            "numero": "314 Bis",
+            "codigoPostal": "14250",
+            "ciudad": "Ciudad de México"
+          }
+        },
+        {
+          "id": 3,
+          "nombre": "Arnold Schwarzenegger",
+          "correoElectronico": "suCorreo@info.com",
+          "numeroTelefono": "5599887766",
+          "domicilio": {
+            "calle": "Insurgentes Sur",
+            "numero": "3695",
+            "codigoPostal": "77777",
+            "ciudad": "Ciudad de México"
+          }
+        }
+      ]
+    }
+  }

@@ -1,0 +1,9 @@
+{
+    "codigo": "500.Banca-Digital-Empleados.1003",
+    "mensaje": "Problemas al procesar su solicitud favor de contactar a su administrador",
+    "folio": "22920181120162829642",
+    "info": "https://baz-developer.bancoazteca.com.mx/errors#500.Banca-Digital-Empleados.1003",
+    "detalles": [
+      "Problemas internos"
+    ]
+}

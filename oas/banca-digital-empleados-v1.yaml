@@ -1,0 +1,648 @@
+swagger: '2.0'
+
+
+info:
+  version: "0.0.1"
+  title: API para administracion de empleados
+  description: |
+    API para las operaciones relacionadas a la administracion de empleado en empresa Digital.
+
+host:
+  dev-api.bancoazteca.com.mx:8080
+
+basePath: /banca-digital/empleados/v1
+
+schemes:
+  - https
+
+produces:
+  - application/json
+
+securityDefinitions:
+  Bearer:
+    description: >
+      Para acceder a la API se debe pasar un token válido en todas las consultas.
+      La siguiente sintaxis se debe utilizar en el encabezado 'Authorization' :
+        Bearer: 2zzLJmBAtTNIU8nF8e8XbmDvaNGs
+    type: apiKey
+    name: Authorization
+    in: header
+
+security:
+  - Bearer: []
+
+paths:
+
+  /empleados:
+    get:
+      summary: Búsqueda de empleados
+      description: Permite consulta empleados en banca digital
+      tags:
+        - Administración de empleados
+      produces:
+        - application/json
+
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/respuestaObtenerEmpleados'
+          examples:
+            application/json: |-
+              {
+                "mensaje": "Operación Exitosa",
+                "folio": "22920190128140415938",
+                "resultado": {
+                  "Empleados": [
+                    {
+                      "id": 1,
+                      "nombre": "Albert Einstein",
+                      "correoElectronico": "suCorreo@info.com",
+                      "numeroTelefono": "5544332211",
+                      "domicilio": {
+                        "calle": "Los manantiales",
+                        "numero": "SN",
+                        "codigoPostal": "03422",
+                        "ciudad": "Ciudad de México"
+                      }
+                    },
+                    {
+                      "id": 2,
+                      "nombre": "Freddy Krueger",
+                      "correoElectronico": "suCorreo@info.com",
+                      "numeroTelefono": "5511223344",
+                      "domicilio": {
+                        "calle": "Corregidora",
+                        "numero": "314 Bis",
+                        "codigoPostal": "14250",
+                        "ciudad": "Ciudad de México"
+                      }
+                    },
+                    {
+                      "id": 3,
+                      "nombre": "Arnold Schwarzenegger",
+                      "correoElectronico": "suCorreo@info.com",
+                      "numeroTelefono": "5599887766",
+                      "domicilio": {
+                        "calle": "Insurgentes Sur",
+                        "numero": "3695",
+                        "codigoPostal": "77777",
+                        "ciudad": "Ciudad de México"
+                      }
+                    }
+                  ]
+                }
+              }
+
+        400:
+          description: Solicitud incorrecta
+          schema:
+            $ref: '#/definitions/error400'
+          examples:
+            application/json: |-
+              {
+                "codigo": "400.Banca-Digital-Empleados.1001",
+                "mensaje": "Petición no válida, favor de validar su información",
+                "folio": "22920190128134317232",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#400.Banca-Digital-Empleados.1001",
+                "detalles": []
+              }
+
+        404:
+          description: Recurso no encontrado
+          schema:
+            $ref: '#/definitions/error404'
+          examples:
+            application/json: |-
+              {
+                "codigo": "404.Banca-Digital-Empleados.1002",
+                "mensaje": "No se encontró información",
+                "folio": "22920190128134317233",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#404.Banca-Digital-Empleados.1002",
+                "detalles": [
+                  "No se obtuvo información relacionada a la consulta"
+                ]
+              }
+
+        500:
+          description: Error interno de servidor
+          schema:
+            $ref: '#/definitions/error500'
+          examples:
+            application/json: |-
+              {
+                "codigo": "500.Banca-Digital-Empleados.1003",
+                "mensaje": "Problemas al procesar su solicitud favor de contactar a su administrador",
+                "folio": "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#500.Banca-Digital-Empleados.1003",
+                "detalles": [
+                  "Problemas internos"
+                ]
+              }
+
+      security:
+        - Bearer: []
+
+  /empleados/{idEmpleado}:
+    get:
+      summary: Consulta de un Empleado de Banca Digital
+      description: Consulta información referente a un Empleado de Banca Digital
+      tags:
+        - Administración de empleados
+      produces:
+        - application/json
+
+      parameters:
+        - in: path
+          name: idEmpleado
+          type: integer
+          required: true
+          description: Identificador del Empleado
+          default: 1
+
+      responses:
+        200:
+          description: Ok
+          schema:
+            $ref: '#/definitions/respuestaObtenerEmpleado'
+          examples:
+            application/json: |-
+              {
+                "mensaje": "Operación Exitosa",
+                "folio": "22920190128140415938",
+                "resultado": {
+                  "id": 1,
+                  "nombre": "Albert Einstein",
+                  "correoElectronico": "suCorreo@info.com",
+                  "numeroTelefono": "5544332211",
+                  "domicilio": {
+                    "calle": "Los manantiales",
+                    "numero": "SN",
+                    "codigoPostal": "03422",
+                    "ciudad": "Ciudad de México"
+                  }
+                }
+              }
+
+        400:
+          description: Solicitud incorrecta
+          schema:
+            $ref: '#/definitions/error400'
+          examples:
+            application/json: |-
+              {
+                "codigo": "400.Banca-Digital-Empleados.1001",
+                "mensaje": "Petición no válida, favor de validar su información",
+                "folio": "22920190128134317232",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#400.Banca-Digital-Empleados.1001",
+                "detalles": [
+                  "Atributo idEmpleado requerido"
+                ]
+              }
+
+        404:
+          description: Recurso no encontrado
+          schema:
+            $ref: '#/definitions/error404'
+          examples:
+            application/json: |-
+              {
+                "codigo": "404.Banca-Digital-Empleados.1002",
+                "mensaje": "No se encontró información",
+                "folio": "22920190128134317233",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#404.Banca-Digital-Empleados.1002",
+                "detalles": [
+                  "No se obtuvo información relacionada al identificador del Empleado proporcionado"
+                ]
+              }
+
+        500:
+          description: Error interno de servidor
+          schema:
+            $ref: '#/definitions/error500'
+          examples:
+            application/json: |-
+              {
+                "codigo": "500.Banca-Digital-Empleados.1003",
+                "mensaje": "Problemas al procesar su solicitud favor de contactar a su administrador",
+                "folio": "22920181120162829642",
+                "info": "https://baz-developer.bancoazteca.com.mx/errors#500.Banca-Digital-Empleados.1003",
+                "detalles": [
+                  "Problemas internos"
+                ]
+              }
+
+      security:
+        - Bearer: []
+  /empleados/empleado:
+    post:
+      summary: Registrar un empleado
+      description: Permite realizar un nuevo registro de empleados
+      tags:
+        - Administración de empleados
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: empleado
+          description: El empleado
+          schema:
+            type: object
+            required:
+              - nombre
+              - correoElectronico
+              - numeroTelefono
+            properties:
+              nombre:
+                type: string
+              correElectronico:
+                type: string
+              numeroTelenofo:
+                type: string
+      responses:
+        201:
+          description: El registro fue correcto.
+          schema:
+            $ref: '#/definitions/respuestaRegistroEmpleado'
+          examples:
+            application/json: |-
+              {
+                  "mensaje": "Registro exitoso",
+                  "folio": "21211221",
+                  "resultado": {
+                      "empleado": [
+                          {
+                              "id": 1,
+                              "nombre": "Miguel Flores",
+                              "correoElectronico": "mf@gmail.com",
+                              "numeroTelefono": "xxxxxxxx"
+                          }
+                      ]
+                  }
+              }
+
+        400:
+          description: Existe un error con el nuevo empleado
+          schema:
+            $ref: '#/definitions/error400'
+
+        500:
+          description: Error en el servidor
+          schema:
+            $ref: '#/definitions/error500'
+  /empleados/update:
+    put:
+      summary: Actualizar un empleado
+      description: descripcion
+      tags:
+        - Administración de empleados
+      operationId: update
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: empleado
+          description: empleado a actualizar
+          schema:
+            type: object
+            required:
+              - idEmpleado
+            properties:
+              nombre:
+                type: string
+              correoElectronico:
+                type: string
+              numeroTelefono:
+                type: string
+      responses:
+        201:
+          description: La actualizacion se realizo con exito
+          schema:
+            $ref: '#/definitions/updateEmpleado'
+        400:
+          description: Existe un error con el nuevo empleado
+          schema:
+            $ref: '#/definitions/error400'
+        500:
+          description: Error en el servidor
+          schema:
+            $ref: '#/definitions/error500'
+  /empleados/{correoElectronico}:
+    delete:
+      summary: Eliminar un empleado por correo electronico
+      operationId: correoElectro
+      tags:
+        - Administración de empleados
+      parameters:
+        - name: correoElectronico
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          type: string
+      responses:
+        201:
+          description: La actualizacion se realizo con exito
+        400:
+          description: Existe un error con el nuevo empleado
+          schema:
+            $ref: '#/definitions/error400'
+        500:
+          description: Error en el servidor
+          schema:
+            $ref: '#/definitions/error500'
+
+definitions:
+  respuestaObtenerEmpleados:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripción de la operación
+        example: "Operación Exitosa"
+      folio:
+        type: string
+        description: Folio de la operación
+        example: "22920190128140415938"
+      resultado:
+        $ref: '#/definitions/resultadoBusquedasEmpleados'
+
+  resultadoBusquedasEmpleados:
+    type: object
+    properties:
+      Empleados:
+        $ref: '#/definitions/busquedasEmpleados'
+
+  busquedasEmpleados:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Id del Empleado
+          example: 1
+        nombre:
+          type: string
+          description: Nombre del Empleado
+          example: "Germain Castelan"
+        correoElectronico:
+          type: string
+          description: Correo electrónico del Empleado
+          example: "miCorreo@info.com"
+        numeroTelefono:
+          type: string
+          description: Número telefónico del Empleado
+          example: "5544332211"
+        domicilio:
+          type: object
+          properties:
+            calle:
+              type: string
+              description: Calle donde vivie el Empleado
+              example: "Cafetales"
+            numero:
+              type: string
+              description: Número de la casa del Empleado
+              example: "SN"
+            codigoPostal:
+              type: string
+              description: Código postal del domicilio del Empleado
+              example: "04918"
+            ciudad:
+              type: string
+              description: Ciudad del domicilio del Empleado
+              example: "Ciudad de México"
+
+  respuestaObtenerEmpleado:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripción de la operación
+        example: "Operación Exitosa"
+      folio:
+        type: string
+        description: Folio de la operación
+        example: "22920190128140415938"
+      resultado:
+        $ref: '#/definitions/resultadoObtenerEmpleado'
+
+  resultadoObtenerEmpleado:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Id del Empleado
+        example: 1
+      nombre:
+        type: string
+        description: Nombre del Empleado
+        example: "Germain Castelan"
+      correoElectronico:
+        type: string
+        description: Correo electrónico del Empleado
+        example: "miCorreo@info.com"
+      numeroTelefono:
+        type: string
+        description: Número telefónico del Empleado
+        example: "5544332211"
+      domicilio:
+        type: object
+        properties:
+          calle:
+            type: string
+            description: Calle donde vivie el Empleado
+            example: "Cafetales"
+          numero:
+            type: string
+            description: Número de la casa del Empleado
+            example: "SN"
+          codigoPostal:
+            type: string
+            description: Código postal del domicilio del Empleado
+            example: "04918"
+          ciudad:
+            type: string
+            description: Ciudad del domicilio del Empleado
+            example: "Ciudad de México"
+
+  respuestaRegistroEmpleado:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripción de la operación
+        example: "Operación exitosa"
+      resultado:
+        $ref: '#/definitions/resultadoRegistroEmpleado'
+
+  resultadoRegistroEmpleado:
+    type: object
+    properties:
+      Empleado:
+        $ref: '#/definitions/registroEmpleado'
+
+  registroEmpleado:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: id de empleado
+        example: 1
+      nombre:
+        type: string
+        description: nombre de empleado
+        example: "Germain Castelan"
+      correElectronico:
+        type: string
+        description: Correo electronico
+        example: "mig@gmail.com"
+      numeroTelefono:
+        type: string
+        description: Numero de telefono
+        example: "119199119"
+  updateEmpleado:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Actualizacion de empleado
+        example: "Operacion exitosa"
+      resultado:
+        $ref: '#/definitions/resultadoUpdateEmpleado'
+
+  resultadoUpdateEmpleado:
+    type: object
+    properties:
+      mensaje:
+        type: string
+        description: Descripción de la operación
+        example: "Operación exitosa"
+      resultado:
+        $ref: '#/definitions/resultadoRegistroEmpleado'
+
+
+  error400:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.Banca-Digital-Empleados.1001"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Petición no válida, favor de validar su información"
+      folio:
+        type: string
+        description: Número de folio de la operación
+        example: "22920190128134317232"
+      info:
+        type: string
+        description: Rutas de ayuda para atender el error
+        example: "https://baz-developer.bancoazteca.com.mx/errors#400.Banca-Digital-Empleados.1001"
+      detalles:
+        type: array
+        items:
+          type: string
+          description: Lista de errores
+          example: ""
+
+  error404:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.Banca-Digital-Empleados.1002"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "No se encontró información"
+      folio:
+        type: string
+        description: Número de folio de la operación
+        example: "22920190128134317232"
+      info:
+        type: string
+        description: Rutas de ayuda para atender el error
+        example: "https://baz-developer.bancoazteca.com.mx/errors#400.Banca-Digital-Empleados.1002"
+      detalles:
+        type: array
+        items:
+          type: string
+          description: Lista de errores
+          example: "No se obtuvo información relacionada a la consulta"
+
+  error500:
+    type: object
+    properties:
+      codigo:
+        type: string
+        description: Código del error
+        example: "400.Banca-Digital-Empleados.1003"
+      mensaje:
+        type: string
+        description: Descripción del error
+        example: "Problemas al procesar su solicitud favor de contactar a su administrador"
+      folio:
+        type: string
+        description: Número de folio de la operación
+        example: "22920190128134317232"
+      info:
+        type: string
+        description: Rutas de ayuda para atender el error
+        example: "https://baz-developer.bancoazteca.com.mx/errors#400.Banca-Digital-Empleados.1003"
+      detalles:
+        type: array
+        items:
+          type: string
+          description: Lista de errores
+          example: "Problemas internos"
+
+  summary:
+    type: object
+    properties:
+      api-name:
+        type: string
+        description: API Empleados
+        example: banca-digital-Empleados-v1
+      Empleados-get:
+        type: object
+        properties:
+          displayName:
+            type: string
+            description: Consulta Empleados de Banca Digital
+            example: Búsqueda de Empleados
+      Empleados-post:
+        type: object
+        properties:
+          displayName:
+            type: string
+            description: Registro de Empleados de Banca Digital
+            example: Registro de Empleados
+      Empleados-idEmpleado-get:
+        type: object
+        properties:
+          displayName:
+            type: string
+            description: Consulta información referente a un Empleado de Banca Digital
+            example: Consultar de un Empleado de Banca Digital
+      Empleados-idEmpleado-put:
+        type: object
+        properties:
+          displayName:
+            type: string
+            description: Actualizacion de datos de un Empleado de Banca Digital
+            example: Actualizar Empleado
+      Empleados-idEmpleado-delete:
+        type: object
+        properties:
+          displayName:
+            type: string
+            description: Realiza baja de un Empleado de Banca Digital
+            example: Baja de Empleado

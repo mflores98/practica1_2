@@ -1,0 +1,9 @@
+{
+    "codigo": "400.Banca-Digital-Empleados.1001",
+    "mensaje": "Petición no válida, favor de validar su información",
+    "folio": "22920190128134317232",
+    "info": "https://baz-developer.bancoazteca.com.mx/errors#400.Banca-Digital-Empleados.1001",
+    "detalles": [
+      "Atributo producto requerido"
+    ]
+}

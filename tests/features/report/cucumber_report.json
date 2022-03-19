@@ -1,0 +1,2229 @@
+[
+  {
+    "description": "    Consultar los empleados registrados en Banca Digital.",
+    "keyword": "Feature",
+    "name": "/empleados GET",
+    "line": 1,
+    "id": "/empleados-get",
+    "tags": [],
+    "uri": "features\\empleados-GET.feature",
+    "elements": [
+      {
+        "id": "/empleados-get;negocio-un-consumer-key-y-secret-key-de-la-app-de-prueba",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Negocio un consumer key y secret key de la app de prueba",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have basic authentication credentials `apigeeUsername` and `apigeePassword`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I GET `apigeeHost`/v1/organizations/`apigeeOrg`/developers/`apigeeDeveloper`/apps/`apigeeApp`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 174000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I store the value of body path $.credentials[0].consumerKey as globalConsumerKey in global scope",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I store the value of body path $.credentials[0].consumerSecret as globalConsumerSecret in global scope",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados-get;negocia-un-access-token-con-el-authorization-server",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Negocia un access token con el Authorization server",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "parameter",
+                      "value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "grant_type",
+                      "client_credentials"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "I set form parameters to",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I have basic authentication credentials `globalConsumerKey` and `globalConsumerSecret`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:74"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 25,
+            "name": "I POST to `apigeeDomain`/`apigeeOauthEndpoint`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 83000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I store the value of body path $.access_token as access token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:230"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados-get;/empleados-200-ok.",
+        "keyword": "Scenario",
+        "line": 31,
+        "name": "/empleados 200 ok.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 33,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "I GET `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 57000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 38,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "response body path $.resultado.empleados[*].id should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "response body path $.resultado.empleados[*].nombre should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "response body path $.resultado.empleados[*].correoElectronico should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "response body path $.resultado.empleados[*].numeroTelefono should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "response body path $.resultado.empleados[*].domicilio.calle should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "response body path $.resultado.empleados[*].domicilio.numero should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 49,
+            "name": "response body path $.resultado.empleados[*].domicilio.codigoPostal should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "response body path $.resultado.empleados[*].domicilio.ciudad should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "    Consultar información referente a una solicitud de crédito",
+    "keyword": "Feature",
+    "name": "/empleados/{idempleado} GET",
+    "line": 1,
+    "id": "/empleados/{idempleado}-get",
+    "tags": [],
+    "uri": "features\\empleados-idempleado-GET.feature",
+    "elements": [
+      {
+        "id": "/empleados/{idempleado}-get;negocio-un-consumer-key-y-secret-key-de-la-app-de-prueba",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Negocio un consumer key y secret key de la app de prueba",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have basic authentication credentials `apigeeUsername` and `apigeePassword`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I GET `apigeeHost`/v1/organizations/`apigeeOrg`/developers/`apigeeDeveloper`/apps/`apigeeApp`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I store the value of body path $.credentials[0].consumerKey as globalConsumerKey in global scope",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I store the value of body path $.credentials[0].consumerSecret as globalConsumerSecret in global scope",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:250"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados/{idempleado}-get;negocia-un-access-token-con-el-authorization-server",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Negocia un access token con el Authorization server",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "parameter",
+                      "value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "grant_type",
+                      "client_credentials"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "I set form parameters to",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:69"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I have basic authentication credentials `globalConsumerKey` and `globalConsumerSecret`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 25,
+            "name": "I POST to `apigeeDomain`/`apigeeOauthEndpoint`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 26000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I store the value of body path $.access_token as access token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:230"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados/{idempleado}-get;/empleados/{idempleado}-200-ok.",
+        "keyword": "Scenario",
+        "line": 54,
+        "name": "/empleados/{idempleado} 200 ok.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 33,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "I GET `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`/1",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 38,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "response body path $.resultado.id should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "response body path $.resultado.nombre should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "response body path $.resultado.correoElectronico should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "response body path $.resultado.numeroTelefono should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "response body path $.resultado.domicilio.calle should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "response body path $.resultado.domicilio.numero should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 49,
+            "name": "response body path $.resultado.domicilio.codigoPostal should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "response body path $.resultado.domicilio.ciudad should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados/{idempleado}-get;/empleados/{idempleado}-400-bad-request.",
+        "keyword": "Scenario",
+        "line": 74,
+        "name": "/empleados/{idempleado} 400 bad request.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 58,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 59,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 61,
+            "name": "I GET `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`/abcde",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "response code should be 400",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 66,
+            "name": "response body path $.codigo should be ^400\\.Banca-Digital-empleados\\.\\d{4}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 67,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 68,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 69,
+            "name": "response body path $.info should be ^https:\\/\\/baz-developer\\.bancoazteca\\.com\\.mx\\/\\w{4,6}#400\\.Banca-Digital-empleados\\.\\d{0,}|[A-Z]{0,}\\d{0,}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 70,
+            "name": "response body path $.detalles[*] should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados/{idempleado}-get;/empleados/{idempleado}-404-not-found.",
+        "keyword": "Scenario",
+        "line": 94,
+        "name": "/empleados/{idempleado} 404 not found.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 78,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 79,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 81,
+            "name": "I GET `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`/1234",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 83,
+            "name": "response code should be 404",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 84,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 86,
+            "name": "response body path $.codigo should be ^404\\.Banca-Digital-empleados\\.\\d{4}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 87,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 88,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 89,
+            "name": "response body path $.info should be ^https:\\/\\/baz-developer\\.bancoazteca\\.com\\.mx\\/\\w{4,6}#404\\.Banca-Digital-empleados\\.\\d{0,}|[A-Z]{0,}\\d{0,}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 90,
+            "name": "response body path $.detalles[*] should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados/{idempleado}-get;/empleados/{idempleado}-500-internal-server-error.",
+        "keyword": "Scenario",
+        "line": 114,
+        "name": "/empleados/{idempleado} 500 internal server error.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 98,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 99,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 101,
+            "name": "I GET `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`/null",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 38000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 103,
+            "name": "response code should be 500",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 104,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 106,
+            "name": "response body path $.codigo should be ^500\\.Banca-Digital-empleados\\.\\d{4}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 107,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 108,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 109,
+            "name": "response body path $.info should be ^https:\\/\\/baz-developer\\.bancoazteca\\.com\\.mx\\/\\w{4,6}#500\\.Banca-Digital-empleados\\.\\d{0,}|[A-Z]{0,}\\d{0,}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 110,
+            "name": "response body path $.detalles[*] should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "    Crear solicitud de crédito",
+    "keyword": "Feature",
+    "name": "/empleados POST",
+    "line": 1,
+    "id": "/empleados-post",
+    "tags": [],
+    "uri": "features\\empleados-POST.feature",
+    "elements": [
+      {
+        "id": "/empleados-post;negocio-un-consumer-key-y-secret-key-de-la-app-de-prueba",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Negocio un consumer key y secret key de la app de prueba",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I have basic authentication credentials `apigeeUsername` and `apigeePassword`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:74"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I GET `apigeeHost`/v1/organizations/`apigeeOrg`/developers/`apigeeDeveloper`/apps/`apigeeApp`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:88"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 115000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I store the value of body path $.credentials[0].consumerKey as globalConsumerKey in global scope",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I store the value of body path $.credentials[0].consumerSecret as globalConsumerSecret in global scope",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados-post;negocia-un-access-token-con-el-authorization-server",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Negocia un access token con el Authorization server",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "parameter",
+                      "value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "grant_type",
+                      "client_credentials"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 19,
+            "name": "I set form parameters to",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:69"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I have basic authentication credentials `globalConsumerKey` and `globalConsumerSecret`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 25,
+            "name": "I POST to `apigeeDomain`/`apigeeOauthEndpoint`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 28000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "response code should be 200",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I store the value of body path $.access_token as access token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados-post;/empleados-201-created.",
+        "keyword": "Scenario",
+        "line": 31,
+        "name": "/empleados 201 created.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 33,
+            "name": "I set Content-Type header to application/json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "I set body to {\"producto\": \"BANCA DIGITAL\",\"Empleado\": {\"nombre\": \"Germain Castelan\",\"correoElectronico\": \"miCorreo@info.com\",\"numeroTelefono\": \"5540302010\",\"domicilio\": {\"calle\": \"Cafetales\",\"numero\": \"SN\",\"codigoPostal\": \"04918\",\"ciudad\": \"Ciudad de México\"}}}",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:49"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "I POST to `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 43000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "response code should be 201",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "response body path $.resultado.idSolicitud should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados-post;/empleados-400-bad-request.",
+        "keyword": "Scenario",
+        "line": 45,
+        "name": "/empleados 400 bad request.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 47,
+            "name": "I set Content-Type header to application/json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 49,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "I set body to {\"producto\": \"BANCA DIGITAL\",\"Empleado\": {\"nombre\": null,\"correoElectronico\": \"miCorreo@info.com\",\"numeroTelefono\": \"5544332211\",\"domicilio\": {\"calle\": \"Cafetales\",\"numero\": \"SN\",\"codigoPostal\": \"04918\",\"ciudad\": \"Ciudad de México\"}}}",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 51,
+            "name": "I POST to `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 53,
+            "name": "response code should be 400",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 54,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 55,
+            "name": "response body path $.codigo should be ^400\\.Banca-Digital-empleados\\.\\d{4}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 56,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 57,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 58,
+            "name": "response body path $.info should be ^https:\\/\\/baz-developer\\.bancoazteca\\.com\\.mx\\/\\w{4,6}#400\\.Banca-Digital-empleados\\.\\d{0,}|[A-Z]{0,}\\d{0,}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 59,
+            "name": "response body path $.detalles[*] should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "/empleados-post;/empleados-500-internal-server-error.",
+        "keyword": "Scenario",
+        "line": 61,
+        "name": "/empleados 500 internal server error.",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\init.js:7"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:26"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 63,
+            "name": "I set Content-Type header to application/json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 64,
+            "name": "I set bearer token",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:235"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 65,
+            "name": "I have valid client TLS configuration",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:79"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 66,
+            "name": "I set body to {\"producto\": null,\"Empleado\": {\"nombre\": null,\"correoElectronico\": null,\"numeroTelefono\": \"5544332211\",\"domicilio\": {\"calle\": \"Cafetales\",\"numero\": \"SN\",\"codigoPostal\": \"04918\",\"ciudad\": \"Ciudad de México\"}}}",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:49"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 67,
+            "name": "I POST to `apigeeDomain`/banca-digital/empleados/`deploymentSuffix`",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:98"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 69,
+            "name": "response code should be 500",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:164"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 70,
+            "name": "response body should be valid json",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:159"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 71,
+            "name": "response body path $.codigo should be ^500\\.Banca-Digital-empleados\\.\\d{4}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 72,
+            "name": "response body path $.mensaje should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 73,
+            "name": "response body path $.folio should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 74,
+            "name": "response body path $.info should be ^https:\\/\\/baz-developer\\.bancoazteca\\.com\\.mx\\/\\w{4,6}#500\\.Banca-Digital-empleados\\.\\d{0,}|[A-Z]{0,}\\d{0,}$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 75,
+            "name": "response body path $.detalles[*] should be ^.*$",
+            "match": {
+              "location": "features\\step_definitions\\apickli-gherkin.js:197"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
